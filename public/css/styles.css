@@ -1,1 +1,19 @@
-/*this is in fruits. do i need this?*/
+body,html{
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+
+.fonts {
+    color: black;
+};
+
+h1 {
+    align-items: center;
+}

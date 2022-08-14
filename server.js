@@ -23,24 +23,70 @@ app.use((req, res, next) => {
     console.log(`I run for all routes`);
     next();
 });
+app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method')) //Sets up methodoverride for use
 
 //Connects to public and CSS. do I need this?
 app.use(express.static('public')); 
 
 //setting up views
-app.set('view engine', "jsx");
+app.set('view engine', "jsx"); //HTML template
 app.engine('jsx', require('express-react-views').createEngine());
-app.use(express.urlencoded({extended:true}));
+// app.use(express.urlencoded({extended:true}));
 
-//Landing Page
+// Seed Route
+app. get('/products/seed', async (req,res) =>{
+    await Products.deleteMany({})
+    await Products.create(productsData);    
+    res.redirect('/products');
+});
+
+// app.get('/products/seed', (req, res)=>{
+//     products.create([
+//         {
+//             name:"The Bow Large Leather Tote Bag",
+//             price:"$2290USD",
+//             // img: {https://img.mytheresa.com/1088/1088/66/jpeg/catalog/product/6b/P00697916.jpg}
+//         },
+//         {
+//             name:"Tabi Leather Ballet Flats",
+//             price:"$650USD",
+//             // img: {https://img.mytheresa.com/1088/1088/66/jpeg/catalog/product/fb/P00591250_d3.jpg}
+//         },
+//         {
+//             name:"Leather Platform Ankle Boots",
+//             price:"$1390USD",
+//             // img: {https://img.mytheresa.com/1088/1088/66/jpeg/catalog/product/be/P00695532.jpg}
+//         }
+//     ], (err, data)=>{
+//         res.redirect('/products');
+//     })
+// });
+
+// //Seed route
+// app.get('/products/seed', (req, res) => {
+    
+//     Products.deleteMany({})
+//     Products.create(productsData)
+// });
+
+// app.get('/products/seed', (req, res) => {
+//     Products.create(productsData);
+//     res.redirect('/products');
+// })
+
+
+//Home Page
 app.get('/',(req, res) =>{
     res.render("Home")
 });
 
+
+
 //Index page
 app.get('/products', (req, res) => {
-    Products.find({}, (error, allProducts) => {
+    Products.find({}, (err, allProducts) => {
+        console.log(allProducts)
         res.render('Index', {
             products: allProducts     
         })
@@ -59,14 +105,62 @@ app.post('/products/', (req, res) => {
     });
 });
 
+//Index of Categories
+app.get('/products/:category', (req, res) => {    
+    Products.find({category: req.params.category},(err, allProducts)=>{
+        res.render('Index', {
+            products: allProducts  
+        });
+    });
+});
 
+//Show route
+app.get('/products/:category/:id', (req, res) =>{
+    Products.findById(req.params.id, (err,foundProducts) =>{
+        res.render("Show", {
+            products: foundProducts
+        }); 
+    });  
+});
 
+//Delete Route
+// app.delete('/products/:id', (req, res) => {
+//     Products.findByIdAndRemove(req.params.id, (err, data) => {
+//         res.redirect('/products')
+//     });
+// });
 
+// Edit
+app.get('/products/:category/:id/edit', (req, res) => {
+    Products.findById(req.params.id, (err, foundProducts) =>{
+        if(!err){
+            res.render('Edit', {
+                products: foundProducts
+        })} else {
+            res.send({
+                msg: err.message
+            });
+        }
+    })
+});
 
+//Update DataBase
+app.put('/products/:category/:id', (req, res) => {
+    Products.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    }, (err, foundProducts) => {
+        res.redirect(`/products/${req.params.category}/${req.params.id}`)
+    });
+});
 
-
-
-
+//Delete
+app.delete('/products/:category/:id', (req, res) => {
+    console.log('Deleting...');
+    //First arg is ID we want to delete, 2nd arg is callback func
+     Products.findByIdAndRemove(req.params.id, (err, data) => {
+         res.redirect('/products');
+     });
+ });
 
 
 

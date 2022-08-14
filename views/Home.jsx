@@ -6,10 +6,11 @@ class Home extends React.Component {
         return(
             <html>
             <head>
+            <link href='./css/styles.css' rel='stylesheet'></link>
                 <title>AGORA</title>
             </head>
             <body>
-                <h1>AGORA</h1>
+            <a href={`/products`}><h1>AGORA</h1></a>
             </body>
             </html>
         )
