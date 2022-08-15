@@ -21,7 +21,7 @@ class Index extends React.Component {
                     return(
                         <li>
                             <a href={`/products/${products.category}/${products.id}`}>
-                             <img src={products.img} height="150px" width="150px"></img>   
+                             <img src={products.image} height="150px" width="150px"></img>   
                             </a>
                             {products.name.charAt(0).toUpperCase() + products.name.slice(1)}
                         </li>

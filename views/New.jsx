@@ -12,7 +12,7 @@ class New extends React.Component {
                 </head>
                 <body style = {style}>
                     <div>
-                        <h1>new item</h1>
+                        <h1>request item</h1>
                             <form action='/products'method='POST'>
                             name: <input type="text" name="name"></input><br />
                             image: <input type="text" name="img"></input>
