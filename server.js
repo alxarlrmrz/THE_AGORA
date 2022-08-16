@@ -17,7 +17,7 @@ const products = require('./models/products');
 // mongoose.connection.once('open', () => {
 //     console.log('connected to mongo')
 // });
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:3003/products', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGO_URI || 'mongo://localhost:3003/products', { useNewUrlParser: true })
         .then(connect => console.log('connected to mongo..'))
         .catch(e => console.log('could not connect to mongo', e))
 
