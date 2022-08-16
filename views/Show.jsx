@@ -1,7 +1,7 @@
 const React = require('react');
-const style = {
-    backgroundColor: 'white'
-  };
+// const style = {
+//     backgroundColor: 'white'
+//   };
 const button = {
     cursor: 'pointer',
     borderRadius: '10px',
