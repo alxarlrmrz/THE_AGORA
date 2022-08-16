@@ -3,20 +3,25 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3003;
 const {response} = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); 
 const Products = require('./models/products');
 const methodOverride = require('method-override');
 const productsData = require('./utilities/productsData');
 const { populate } = require('./models/products');
 const products = require('./models/products');
 
-//DB connection
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true});
-mongoose.connection.once('open', () => {
-    console.log('connected to mongo')
-});
+//DB connection ask melissa!
+// mongoose.connect(process.env.MONGO_URI, {
+//     useNewUrlParser: true, 
+//     useUnifiedTopology: true});
+// mongoose.connection.once('open', () => {
+//     console.log('connected to mongo')
+// });
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:3003/products', { useNewUrlParser: true })
+        .then(connect => console.log('connected to mongo..'))
+        .catch(e => console.log('could not connect to mongo', e))
+
+
 
 //Middleware
 app.use((req, res, next) => {
