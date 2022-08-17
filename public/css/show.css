@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    font-family: 'Cormorant SC', serif;
+}
+
+form {
+    text-align: left;
+}

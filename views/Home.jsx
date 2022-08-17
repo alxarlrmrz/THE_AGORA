@@ -9,7 +9,7 @@ class Home extends React.Component {
             <link rel="preconnect" href="https://fonts.googleapis.com"></link>
 <link rel="preconnect" href="https://fonts.gstatic.com"></link>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300&display=swap" rel="stylesheet"></link>
-            <link href='./css/styles.css' rel='stylesheet'></link>
+            <link href='/css/home.css' rel='stylesheet'></link>
                 <title>AGORA</title>
             </head>
             <body>

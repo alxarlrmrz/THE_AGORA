@@ -1,7 +1,5 @@
 const React = require('react');
-// const style = {
-//     backgroundColor: 'white'
-//   };
+
 const button = {
     cursor: 'pointer',
     borderRadius: '10px',
@@ -31,13 +29,13 @@ const button = {
         return(<html>
             <head>
             <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-<link rel="preconnect" href="https://fonts.gstatic.com"></link>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300&display=swap" rel="stylesheet"></link>
-            <link href='./css/styles.css' rel='stylesheet'></link>
+            <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+            <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300&display=swap" rel="stylesheet"></link>
+            <link href='/css/show.css' rel='stylesheet'></link>
                 <title>AGORA</title>
             </head>
             <body>
-            <div style = {style}>
+            <div>
                 <h1> {products.category} </h1>
                 <h2> {products.name} </h2>
                     <img src={products.image}height="500px" width="500px"></img>

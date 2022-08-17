@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    background-color: white;
+    text-align: center;
+    font-family: 'Cormorant SC', serif;
+}
+
+nav {
+    font-family: 'Cormorant SC', serif;
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.shop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skus {
+    display: flex;
+    flex-direction: column;
+    width: 24vw;
+    justify-content: center;
+    align-items: center;
+ }
+
+body,html{
+    height: 100%;
+    margin: 0;
+}
+
+/* .container {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+} */
+
+.fonts {
+    color: black;
+};
+
+h1 {
+    align-items: center;
+}

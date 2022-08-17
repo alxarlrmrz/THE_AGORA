@@ -1,16 +1,18 @@
 const React = require('react');
-const style = {
-    backgroundColor: 'white'
-}; 
+
 
 class New extends React.Component {
     render() {        
         return(
             <html>
                 <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+<link rel="preconnect" href="https://fonts.gstatic.com" ></link>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300&display=swap" rel="stylesheet"></link>
+            <link href='/css/new.css' rel='stylesheet'></link>
                 <title>AGORA</title>
                 </head>
-                <body style = {style}>
+                <body>
                     <div>
                         <h1>request item</h1>
                             <form action='/products'method='POST'>
@@ -23,8 +25,8 @@ class New extends React.Component {
                             category: <input type="text" name="category"></input>
                             <input type="submit" name="" value="submit"></input>
                             </form>
-                            <button>clear form</button>
-                            <a href="/products">home</a>
+                            <button>clear form</button><br/>
+                <a href={`/`}><button>home</button></a>
                     </div>
                 </body>
             </html>

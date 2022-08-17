@@ -32,7 +32,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method')) //Sets up methodoverride for use
 
 //Connects to public and CSS. do I need this?
-app.use(express.static('public')); 
+app.use(express.static('./public')); 
 
 //setting up views
 app.set('view engine', "jsx"); //HTML template
@@ -46,47 +46,10 @@ app. get('/products/seed', async (req,res) =>{
     res.redirect('/products');
 });
 
-// app.get('/products/seed', (req, res)=>{
-//     products.create([
-//         {
-//             name:"The Bow Large Leather Tote Bag",
-//             price:"$2290USD",
-//             // img: {https://img.mytheresa.com/1088/1088/66/jpeg/catalog/product/6b/P00697916.jpg}
-//         },
-//         {
-//             name:"Tabi Leather Ballet Flats",
-//             price:"$650USD",
-//             // img: {https://img.mytheresa.com/1088/1088/66/jpeg/catalog/product/fb/P00591250_d3.jpg}
-//         },
-//         {
-//             name:"Leather Platform Ankle Boots",
-//             price:"$1390USD",
-//             // img: {https://img.mytheresa.com/1088/1088/66/jpeg/catalog/product/be/P00695532.jpg}
-//         }
-//     ], (err, data)=>{
-//         res.redirect('/products');
-//     })
-// });
-
-// //Seed route
-// app.get('/products/seed', (req, res) => {
-    
-//     Products.deleteMany({})
-//     Products.create(productsData)
-// });
-
-// app.get('/products/seed', (req, res) => {
-//     Products.create(productsData);
-//     res.redirect('/products');
-// })
-
-
 //Home Page
 app.get('/',(req, res) =>{
     res.render("Home")
 });
-
-
 
 //Index page
 app.get('/products', (req, res) => {
@@ -127,13 +90,6 @@ app.get('/products/:category/:id', (req, res) =>{
         }); 
     });  
 });
-
-//Delete Route
-// app.delete('/products/:id', (req, res) => {
-//     Products.findByIdAndRemove(req.params.id, (err, data) => {
-//         res.redirect('/products')
-//     });
-// });
 
 // Edit
 app.get('/products/:category/:id/edit', (req, res) => {
