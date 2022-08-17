@@ -1,7 +1,5 @@
 const React = require('react')
-const style = {
-    backgroundColor: 'white'
-  };
+
 
   class Edit extends React.Component {
     render() {
@@ -12,9 +10,9 @@ const style = {
                 <link rel="preconnect" href="https://fonts.googleapis.com"></link>
 <link rel="preconnect" href="https://fonts.gstatic.com" ></link>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300&display=swap" rel="stylesheet"></link>
-            <link href='/css/new.css' rel='stylesheet'></link>
+            <link href='/css/edit.css' rel='stylesheet'></link>
                 </head>
-                <body style = {style}>
+                <body>
                     <div >
                         <h1> edit </h1>
                             <form action= {`/products/${products.category}/${products.id}?_method=PUT`} method="POST">

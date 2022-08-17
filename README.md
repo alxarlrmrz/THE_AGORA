@@ -3,8 +3,8 @@ A small luxury goods shop.
 This is the second project for the software engineering bootcamp I am currently enrolled in.
 
 ### Overview
-- [Link to App]()
-- [Link to demonstration Video]()
+- [Link to App](https://alexs-shop.herokuapp.com/)
+- [Link to demonstration Video](https://www.youtube.com/watch?v=F4hr4Ew_iPc)
 
 ### Seven Restful Routes
 
@@ -21,13 +21,20 @@ DELETE | /products/:id | delete a sku |
 
 ### Tech Stack
 
-- HTML
 - CSS
 - JavaScript
 - Express.js
 - React.js
 - MongoDB
 - Heroku
+
+### Future Updates:
+- Cart
+- Home 
+- Childrenswear
+- Digital goods/NFTs
+- Community
+    - Video/Teleconferencing
 
 ## Acknowledgements
 
